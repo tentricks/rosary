@@ -1,0 +1,1616 @@
+/* Shared colors, type, and reset styles */
+:root {
+  --paper: #f4f1e9;
+  --card: #fffdf8;
+  --ink: #29322c;
+  --muted: #657068;
+  --green: #294d3d;
+  --green2: #4b705b;
+  --gold: #c09b5d;
+  --line: #dfdacd;
+  --serif: Georgia,'Times New Roman',serif;
+  --sans: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --shadow: 0 18px 48px #28362912
+}
+* {
+  box-sizing: border-box
+}
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at 50% 0,#fbf9f3 0,var(--paper) 70%);
+  color: var(--ink);
+  font: 16px/1.55 var(--sans)
+}
+button,select {
+  font: inherit
+}
+button {
+  cursor: pointer
+}
+:focus-visible {
+  outline: 3px solid #9a5b13;
+  outline-offset: 3px
+}
+a {
+  color: inherit
+}
+.skip {
+  position: absolute;
+  top: -5rem;
+  left: 1rem;
+  z-index: 5;
+  padding: .7rem 1rem;
+  background: white
+}
+.skip:focus {
+  top: 1rem
+}
+.wrap {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 24px
+}
+.topbar {
+  padding: 18px 0;
+  border-bottom: 1px solid #dfdacd99
+}
+.topbar .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  font: 600 1rem var(--serif)
+}
+.brandmark {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--green)
+}
+.privacy {
+  color: var(--muted);
+  font-size: .8rem
+}
+main {
+  padding: 37px 0 56px
+}
+.intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 25px
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-weight: 700;
+  color: var(--green2);
+  font-size: .72rem
+}
+.intro h1 {
+  font: 400 clamp(2.25rem,5vw,3.5rem)/1.06 var(--serif);
+  letter-spacing: -.03em;
+  margin: 8px 0
+}
+.intro p {
+  margin: 0 auto;
+  color: var(--muted);
+  max-width: 590px
+}
+.today {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 12px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: #fffaf0;
+  color: var(--green);
+  font-size: .78rem
+}
+.today strong {
+  font-weight: 700
+}
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(320px,1fr) 190px;
+  grid-template-areas: "prayer rosary";
+  gap: 18px;
+  align-items: start
+}
+.workspace.left-handed {
+  grid-template-areas: "rosary prayer"
+}
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow)
+}
+.prayer-panel {
+  grid-area: prayer;
+  padding: clamp(22px,3.5vw,34px);
+  display: flex;
+  flex-direction: column;
+  min-height: 480px
+}
+.rosary-panel {
+  grid-area: rosary;
+  position: sticky;
+  top: 12px;
+  padding: 14px 12px 16px
+}
+.rail-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  margin: 0 1px 10px
+}
+.rail-head h2 {
+  font: 400 1.2rem var(--serif);
+  margin: 0
+}
+.rail-count {
+  font-size: .69rem;
+  color: var(--muted);
+  white-space: nowrap
+}
+.rail-window {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(5,50px);
+  align-items: center
+}
+.rail-window:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 23px;
+  bottom: 23px;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #ac9871aa
+}
+.rail-slot {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  height: 50px
+}
+.rail-item {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  color: #705c3e;
+  touch-action: manipulation
+}
+.rail-bead {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1.5px solid #987c4d;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#f8f3e8,#dfd3ba);
+  box-shadow: inset -2px -2px 4px #927d5826
+}
+.rail-item.large .rail-bead {
+  width: 27px;
+  height: 27px;
+  background: linear-gradient(135deg,#f4ebd7,#d2bd91)
+}
+.rail-item.cross .rail-bead {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 27px
+}
+.rail-item.medal .rail-bead {
+  width: 33px;
+  height: 33px;
+  font-size: 17px
+}
+.rail-item.current .rail-bead {
+  width: 37px;
+  height: 37px;
+  border: 2px solid #203c30;
+  background: var(--green);
+  color: white;
+  box-shadow: 0 0 0 5px #294d3d1c
+}
+.rail-item.current.large .rail-bead {
+  width: 40px;
+  height: 40px
+}
+.rail-item.current.cross .rail-bead {
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  box-shadow: 0 0 0 5px #294d3d1c
+}
+.rail-item.current.medal .rail-bead {
+  border: 2px solid #203c30
+}
+.rail-item.done:not(.current) .rail-bead {
+  background: linear-gradient(135deg,#e0c58e,#bd9857)
+}
+.rail-item:focus-visible {
+  outline: 3px solid #9a5b13;
+  outline-offset: 1px
+}
+.rail-empty {
+  width: 46px;
+  height: 46px
+}
+.rail-hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: .69rem;
+  line-height: 1.4;
+  margin: 11px 0 0
+}
+.prayer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px
+}
+.prayer-top .label {
+  color: var(--green2);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .7rem;
+  font-weight: 750
+}
+.progress-text {
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: .76rem
+}
+.progress {
+  height: 5px;
+  background: #e9e4d8;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 11px 0 26px
+}
+.progress span {
+  height: 100%;
+  display: block;
+  background: var(--green2);
+  transition: width .2s
+}
+.prayer-title {
+  font: 400 clamp(1.75rem,3.2vw,2.3rem)/1.16 var(--serif);
+  margin: 0 0 8px
+}
+.mystery-kicker {
+  color: var(--green2);
+  font-size: .77rem;
+  font-weight: 750;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 0 0 5px
+}
+.meditation {
+  font: italic 1.04rem/1.6 var(--serif);
+  color: #60685f;
+  margin: 0 0 20px
+}
+.prayer-text {
+  font: 1.06rem/1.85 var(--serif);
+  white-space: pre-line;
+  margin: 0;
+  color: #343a33
+}
+.prayer-text.hidden {
+  display: none
+}
+.text-toggle {
+  align-self: flex-start;
+  border: 0;
+  padding: 8px 0;
+  background: transparent;
+  color: var(--green2);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 11px
+}
+.spacer {
+  flex: 1;
+  min-height: 16px
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line)
+}
+.btn {
+  min-height: 45px;
+  padding: 10px 15px;
+  border: 1px solid var(--green);
+  border-radius: 9px;
+  color: white;
+  background: var(--green);
+  font-weight: 650
+}
+.btn.secondary {
+  color: var(--green);
+  background: transparent
+}
+.btn:disabled {
+  opacity: .4;
+  cursor: not-allowed
+}
+.btn:not(:disabled):hover {
+  background: var(--green2);
+  color: #fff
+}
+.btn.secondary:not(:disabled):hover {
+  background: #edf1eb;
+  color: var(--green)
+}
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px
+}
+.mystery-select {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: var(--muted);
+  font-size: .78rem
+}
+.mystery-select select {
+  max-width: 158px;
+  padding: 7px 27px 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: var(--ink);
+  font-size: .8rem
+}
+.size-tools {
+  display: flex;
+  gap: 5px
+}
+.size-tools button {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fffdf8;
+  color: var(--green);
+  padding: 5px 8px
+}
+.size-tools button[aria-pressed=true] {
+  background: #edf1eb;
+  border-color: var(--green)
+}
+.hand-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px
+}
+.hand-toggle label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: .82rem;
+  cursor: pointer
+}
+.hand-toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--green)
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0
+}
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .77rem;
+  margin-top: 19px
+}
+body.large .prayer-text {
+  font-size: 1.25rem;
+  line-height: 1.9
+}
+body.larger .prayer-text {
+  font-size: 1.42rem;
+  line-height: 1.95
+}
+/* Compact layouts for tablet and mobile screens */
+@media(max-width:760px) {
+  .wrap {
+    padding: 0 14px
+  }
+  .workspace {
+    grid-template-columns: minmax(0,1fr) 82px;
+    gap: 10px
+  }
+  .workspace.left-handed {
+    grid-template-columns: 82px minmax(0,1fr)
+  }
+  .prayer-panel {
+    padding: 20px 17px;
+    min-height: 440px
+  }
+  .rosary-panel {
+    padding: 12px 7px;
+    top: 8px
+  }
+  .rail-head {
+    display: block;
+    text-align: center
+  }
+  .rail-head h2 {
+    font-size: 1rem
+  }
+  .rail-count {
+    font-size: .65rem
+  }
+  .rail-hint {
+    font-size: .64rem
+  }
+  .rail-window {
+    grid-template-rows: repeat(5,48px)
+  }
+  .rail-slot {
+    height: 48px
+  }
+  .rail-window:before {
+    top: 22px;
+    bottom: 22px
+  }
+  .intro {
+    margin-bottom: 18px
+  }
+  .intro p {
+    font-size: .92rem
+  }
+  .topbar {
+    padding: 13px 0
+  }
+  .privacy {
+    font-size: .72rem
+  }
+}
+@media(max-width:390px) {
+  .wrap {
+    padding: 0 10px
+  }
+  .workspace {
+    grid-template-columns: minmax(0,1fr) 72px;
+    gap: 8px
+  }
+  .workspace.left-handed {
+    grid-template-columns: 72px minmax(0,1fr)
+  }
+  .prayer-panel {
+    padding: 18px 13px
+  }
+  .prayer-text {
+    font-size: 1rem
+  }
+  .controls .btn {
+    padding: 9px 10px;
+    font-size: .88rem
+  }
+  .rail-item {
+    width: 44px;
+    height: 44px
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    scroll-behavior: auto!important;
+    transition: none!important
+  }
+}
+/* Full-viewport canvas and independently scrolling prayer text */
+html,body {
+  height: 100%;
+  overflow: hidden
+}
+main#top {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px 24px 8px
+}
+.intro {
+  flex: 0 0 auto;
+  max-width: none;
+  margin: 0 auto 7px
+}
+.intro h1 {
+  font-size: clamp(1.8rem,3.2vw,2.35rem);
+  margin: 0
+}
+.intro p {
+  font-size: .82rem;
+  line-height: 1.35
+}
+.today {
+  margin-top: 4px;
+  padding: 3px 9px
+}
+.utility-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  margin: 0 0 7px
+}
+.hand-toggle {
+  margin: 0;
+  justify-content: flex-start
+}
+.hand-toggle label {
+  min-height: 38px
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: .82rem
+}
+.theme-toggle:hover {
+  border-color: var(--green2)
+}
+.theme-toggle span:first-child {
+  font-size: 1.1rem;
+  color: var(--green2)
+}
+.workspace {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  align-items: stretch
+}
+.prayer-panel {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 20px 24px
+}
+.prayer-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: 0 7px 8px 0
+}
+.progress {
+  margin: 8px 0 15px
+}
+.text-toggle {
+  margin-top: 4px;
+  padding: 6px 0
+}
+.spacer {
+  flex: 0 0 5px;
+  min-height: 5px
+}
+.controls {
+  margin-top: 8px;
+  padding-top: 10px
+}
+.tools {
+  margin-top: 8px
+}
+.rosary-panel {
+  position: relative;
+  top: auto;
+  align-self: center;
+  justify-self: stretch
+}
+.rail-window {
+  height: min(320px,calc(100dvh - 300px));
+  min-height: 180px;
+  grid-template-rows: repeat(5,1fr)
+}
+.rail-slot {
+  height: auto
+}
+.rail-window:before {
+  top: 10%;
+  bottom: 10%
+}
+.rail-hint {
+  margin-top: 7px
+}
+.footer {
+  flex: 0 0 auto;
+  margin: 5px 0 0
+}
+.topbar {
+  display: none
+}
+/* Dark theme palette and component colors */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #141a17;
+  --card: #202923;
+  --ink: #e8eee9;
+  --muted: #aab6ae;
+  --green: #3b684f;
+  --green2: #9abca4;
+  --gold: #d0ad69;
+  --line: #3a4940;
+  --shadow: 0 18px 48px #0005
+}
+:root[data-theme="dark"] body {
+  background: radial-gradient(ellipse at 50% 0,#202923 0,var(--paper) 70%)
+}
+:root[data-theme="dark"] .today,:root[data-theme="dark"] .mystery-select select,:root[data-theme="dark"] .size-tools button {
+  background: #26332b;
+  color: var(--ink)
+}
+:root[data-theme="dark"] .progress {
+  background: #344039
+}
+:root[data-theme="dark"] .prayer-text {
+  color: #e3e9e4
+}
+:root[data-theme="dark"] .meditation {
+  color: #bac7bd
+}
+:root[data-theme="dark"] .btn.secondary:not(:disabled):hover,:root[data-theme="dark"] .size-tools button[aria-pressed=true] {
+  background: #31463a;
+  color: var(--ink)
+}
+:root[data-theme="dark"] .rail-item {
+  color: #d5bd8e
+}
+:root[data-theme="dark"] .rail-window:before {
+  background: #c3a97599
+}
+:root[data-theme="dark"] .rail-item.current .rail-bead {
+  color: #f7faf7
+}
+:root[data-theme="dark"] #theme-color-meta {
+  color-scheme: dark
+}
+@media(max-width:760px) {
+  main#top {
+    padding: 7px 14px 7px
+  }
+  .intro {
+    margin-bottom: 5px
+  }
+  .workspace {
+    gap: 10px
+  }
+  .prayer-panel {
+    padding: 15px 14px
+  }
+  .rosary-panel {
+    padding: 10px 7px
+  }
+  .rail-window {
+    height: min(300px,calc(100dvh - 290px));
+    min-height: 180px
+  }
+  .rail-hint {
+    font-size: .62rem
+  }
+  .tools {
+    gap: 7px
+  }
+  .mystery-select {
+    font-size: .73rem
+  }
+  .mystery-select select {
+    max-width: 135px;
+    padding: 6px 20px 6px 7px
+  }
+  .size-tools button {
+    padding: 5px 7px
+  }
+}
+@media(max-width:390px) {
+  main#top {
+    padding: 6px 10px
+  }
+  .workspace {
+    gap: 8px
+  }
+  .prayer-panel {
+    padding: 13px 10px
+  }
+  .rail-window {
+    height: min(290px,calc(100dvh - 280px));
+    min-height: 170px
+  }
+  .prayer-title {
+    font-size: 1.55rem
+  }
+  .progress {
+    margin-bottom: 10px
+  }
+  .controls .btn {
+    font-size: .82rem
+  }
+  .tools {
+    align-items: flex-end
+  }
+  .size-tools button {
+    font-size: .8rem;
+    padding: 4px 6px
+  }
+}
+@media(max-height:560px) {
+  main#top {
+    padding-top: 4px;
+    padding-bottom: 4px
+  }
+  .intro .eyebrow,.intro p,.footer {
+    display: none
+  }
+  .intro h1 {
+    font-size: 1.45rem
+  }
+  .today {
+    margin-top: 1px;
+    padding: 1px 7px
+  }
+  .utility-bar {
+    margin-bottom: 4px
+  }
+  .hand-toggle label,.theme-toggle {
+    min-height: 32px
+  }
+  .workspace {
+    gap: 8px
+  }
+  .prayer-panel {
+    padding: 10px 14px
+  }
+  .rail-window {
+    height: calc(100dvh - 195px);
+    min-height: 140px
+  }
+  .rail-hint {
+    margin-top: 3px
+  }
+  .progress {
+    margin-bottom: 8px
+  }
+  .controls {
+    padding-top: 6px;
+    margin-top: 5px
+  }
+  .tools {
+    margin-top: 4px
+  }
+}
+.intro {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 6px
+}
+.mystery-line {
+  display: flex;
+  align-items: center;
+  gap: 6px
+}
+.mystery-label {
+  font-size: .68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .1em
+}
+.mystery-choice select {
+  max-width: 205px;
+  border: 0;
+  background: transparent;
+  color: var(--green2);
+  font-weight: 700;
+  font-size: .82rem;
+  padding: 3px 4px
+}
+.intro h1 {
+  font: 400 clamp(1.25rem,2.5vw,1.75rem)/1.1 var(--serif);
+  margin: 1px 0 2px
+}
+.intro p {
+  font-size: .76rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--muted)
+}
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--green2)
+}
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+/* Animated vertical bead rail */
+.rail-window {
+  display: grid;
+  grid-template-rows: repeat(var(--visible-rows,11),40px);
+  height: calc(var(--visible-rows,11)*40px);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%);
+  mask-image: linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%)
+}
+.rail-window:before {
+  top: 20px;
+  bottom: 20px
+}
+.rail-slot {
+  height: 40px;
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(.2,.75,.25,1);
+  animation-fill-mode: both
+}
+.rail-window.move-forward .rail-slot {
+  animation-name: rail-forward
+}
+.rail-window.move-backward .rail-slot {
+  animation-name: rail-backward
+}
+@keyframes rail-forward {
+  from {
+    transform: translateY(calc(var(--rail-shift,40px)*-1))
+  }
+  to {
+    transform: translateY(0)
+  }
+}
+@keyframes rail-backward {
+  from {
+    transform: translateY(var(--rail-shift,40px))
+  }
+  to {
+    transform: translateY(0)
+  }
+}
+.rail-item {
+  width: 40px;
+  height: 40px
+}
+.rail-bead {
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 32% 26%,#fffdf4,#d9c9a7 78%);
+  box-shadow: inset -2px -2px 4px #705a3428,0 1px 2px #0002
+}
+.rail-item.large .rail-bead {
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle at 32% 26%,#fff9e9,#d2b97f 78%)
+}
+.rail-item.decade-end .rail-bead {
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 2px #c09b5d35,inset -2px -2px 4px #705a3428
+}
+.rail-item.cross .rail-bead {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--gold)
+}
+.rail-item.cross svg {
+  width: 34px;
+  height: 40px;
+  fill: currentColor;
+  filter: drop-shadow(0 1px 1px #0003)
+}
+.rail-item.medal .rail-bead {
+  width: 30px;
+  height: 30px
+}
+.rail-item.medal svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor
+}
+.rail-item.current .rail-bead {
+  width: 34px;
+  height: 34px;
+  box-shadow: 0 0 0 5px #294d3d24,0 2px 5px #0003
+}
+.rail-item.current.large .rail-bead {
+  width: 36px;
+  height: 36px
+}
+.rail-item.current.cross .rail-bead {
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  box-shadow: 0 0 0 5px #c09b5d24
+}
+.rail-item.done:not(.current) .rail-bead {
+  background: radial-gradient(circle at 32% 26%,#f5e6c5,#b88d49 78%)
+}
+.rail-empty {
+  width: 40px;
+  height: 40px
+}
+:root[data-theme="dark"] .rail-window:before {
+  background: #c3a97599
+}
+:root[data-theme="dark"] .rail-bead {
+  background: radial-gradient(circle at 32% 26%,#eadfca,#8f7954 78%)
+}
+:root[data-theme="dark"] .rail-item.done:not(.current) .rail-bead {
+  background: radial-gradient(circle at 32% 26%,#e4c985,#94703b 78%)
+}
+@media(max-width:760px) {
+  main#top {
+    padding: 6px 12px 5px
+  }
+  .workspace {
+    grid-template-columns: minmax(0,1fr) 76px;
+    gap: 9px
+  }
+  .workspace.left-handed {
+    grid-template-columns: 76px minmax(0,1fr)
+  }
+  .prayer-panel {
+    padding: 13px 12px
+  }
+  .rosary-panel {
+    padding: 8px 4px
+  }
+  .rail-hint {
+    font-size: .6rem
+  }
+  .intro h1 {
+    font-size: 1.28rem
+  }
+  .intro p {
+    font-size: .72rem
+  }
+  .mystery-choice select {
+    max-width: 175px;
+    font-size: .76rem
+  }
+}
+@media(max-width:390px) {
+  main#top {
+    padding: 5px 8px
+  }
+  .workspace {
+    grid-template-columns: minmax(0,1fr) 68px;
+    gap: 7px
+  }
+  .workspace.left-handed {
+    grid-template-columns: 68px minmax(0,1fr)
+  }
+  .prayer-panel {
+    padding: 11px 9px
+  }
+  .prayer-text {
+    font-size: 1rem
+  }
+  .prayer-title {
+    font-size: 1.5rem
+  }
+  .controls .btn {
+    padding: 8px 8px;
+    font-size: .8rem
+  }
+  .rail-item {
+    width: 40px;
+    height: 40px
+  }
+}
+@media(max-height:620px) {
+  main#top {
+    padding-top: 3px;
+    padding-bottom: 3px
+  }
+  .intro {
+    margin-bottom: 3px
+  }
+  .intro p {
+    display: none
+  }
+  .utility-bar {
+    margin-bottom: 3px
+  }
+  .hand-toggle label,.theme-toggle {
+    min-height: 32px
+  }
+  .theme-toggle {
+    width: 34px;
+    height: 34px
+  }
+  .workspace {
+    gap: 6px
+  }
+  .prayer-panel {
+    padding: 8px 10px
+  }
+  .rail-head {
+    margin-bottom: 1px
+  }
+  .rail-hint {
+    display: none
+  }
+  .progress {
+    margin: 5px 0 7px
+  }
+  .controls {
+    padding-top: 5px;
+    margin-top: 4px
+  }
+  .tools {
+    margin-top: 4px
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .rail-slot {
+    animation: none!important
+  }
+}
+.rail-window {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%);
+  mask-image: linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%)
+}
+.rail-window:before {
+  z-index: 0;
+  top: 12px;
+  bottom: 12px
+}
+.rail-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 220ms cubic-bezier(.2,.75,.25,1);
+  will-change: transform
+}
+.rail-slot {
+  height: 40px;
+  flex: 0 0 40px
+}
+.rail-gap {
+  height: 32px;
+  flex: 0 0 32px
+}
+.rail-item.cross {
+  width: 44px;
+  height: 48px;
+  overflow: visible
+}
+.rail-item.cross .rail-cross-icon {
+  width: 34px;
+  height: 44px;
+  fill: var(--gold);
+  filter: drop-shadow(0 1px 2px #0004)
+}
+.rail-item.cross.current .rail-cross-icon {
+  filter: drop-shadow(0 0 5px #d0ad6999)
+}
+.rail-item.medal .rail-bead {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--gold)
+}
+.rail-item.medal .rail-emblem {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+.rail-item.current.medal .rail-bead {
+  border: 0;
+  background: transparent;
+  box-shadow: 0 0 0 3px #c09b5d30
+}
+@media(prefers-reduced-motion:reduce) {
+  .rail-track {
+    transition: none!important
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #080b09;
+  --card: #111613;
+  --ink: #e8eee9;
+  --muted: #9ba79f;
+  --green: #31553f;
+  --green2: #93b89c;
+  --gold: #d0ad69;
+  --line: #27312b;
+  --shadow: 0 18px 48px #0008
+}
+:root[data-theme="dark"] body {
+  background: radial-gradient(ellipse at 50% 0,#111713 0,var(--paper) 72%)
+}
+.utility-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+.wake-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--green2)
+}
+.wake-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+.wake-toggle.active {
+  background: var(--green);
+  color: #f1f6f2;
+  border-color: var(--green2);
+  box-shadow: 0 0 0 3px #93b89c24
+}
+.wake-toggle:disabled {
+  opacity: .4;
+  cursor: not-allowed
+}
+/* Scripture references and focus states */
+.scripture-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px
+}
+.scripture-links.hidden {
+  display: none
+}
+.scripture-links a {
+  color: var(--green2);
+  font: 650 1rem/1.45 var(--serif);
+  text-underline-offset: 3px
+}
+.scripture-links a:focus-visible {
+  outline: 3px solid #9a5b13;
+  outline-offset: 3px;
+  border-radius: 2px
+}
+:root[data-theme="dark"] .scripture-links a {
+  color: #b7d0bc
+}
+html,body {
+  touch-action: manipulation
+}
+.size-tools {
+  flex: 0 0 auto;
+  min-width: 0
+}
+.size-tools button {
+  min-width: 0;
+  white-space: nowrap
+}
+.reset-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 32px;
+  margin-top: 5px;
+  padding: 3px 2px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--green2);
+  font: 650 .72rem/1 system-ui,sans-serif;
+  white-space: nowrap;
+  touch-action: manipulation
+}
+.reset-button svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+.reset-button:focus-visible {
+  outline: 3px solid #9a5b13;
+  outline-offset: 2px
+}
+.reset-button:hover {
+  background: #26332b
+}
+@media(max-width:760px) {
+  .tools {
+    width: 100%;
+    min-width: 0
+  }
+  .size-tools {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 4px;
+    width: 100%
+  }
+  .size-tools button {
+    width: 100%;
+    padding: 4px 2px;
+    font-size: .74rem
+  }
+  .reset-button {
+    font-size: .62rem;
+    gap: 3px
+  }
+  .reset-button svg {
+    width: 13px;
+    height: 13px
+  }
+}
+@media(max-width:390px) {
+  .size-tools button {
+    font-size: .7rem;
+    padding: 3px 1px
+  }
+}
+/* Compact, fixed-height canvas: mystery context above a flexible prayer workspace. */
+/* Mystery summary and compact display controls */
+.canvas-header {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0 0 7px
+}
+.canvas-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 38px
+}
+.canvas-header .intro {
+  margin: 0;
+  max-width: none;
+  flex: 1 1 auto;
+  min-width: 0
+}
+.mystery-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0
+}
+.mystery-line .mystery-label {
+  font-size: .72rem;
+  color: var(--muted);
+  white-space: nowrap
+}
+.mystery-choice select {
+  max-width: 190px;
+  padding: 6px 24px 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font: 500 .8rem system-ui,sans-serif
+}
+.utility-bar {
+  flex: 0 0 auto;
+  margin: 0
+}
+.utility-actions {
+  gap: 6px
+}
+.hand-toggle,.wake-toggle,.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  min-height: 38px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--green2);
+  cursor: pointer;
+  touch-action: manipulation
+}
+.hand-toggle svg,.wake-toggle svg,.theme-toggle svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+.hand-toggle[aria-pressed="true"] {
+  background: #24372a;
+  border-color: var(--green2);
+  box-shadow: 0 0 0 2px #93b89c20
+}
+.hand-toggle:focus-visible,.wake-toggle:focus-visible,.theme-toggle:focus-visible {
+  outline: 3px solid #9a5b13;
+  outline-offset: 2px
+}
+.theme-toggle svg[hidden] {
+  display: none!important
+}
+.mystery-summary {
+  min-width: 0
+}
+.mystery-summary h1 {
+  font: 400 clamp(1.35rem,2.5vw,1.8rem)/1.12 var(--serif);
+  margin: 0;
+  color: var(--ink)
+}
+.mystery-summary p {
+  font-size: .78rem;
+  line-height: 1.3;
+  color: var(--muted);
+  margin: 2px 0 0;
+  max-width: 70ch
+}
+.workspace {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  align-items: stretch
+}
+.prayer-panel {
+  min-width: 0;
+  min-height: 0
+}
+.prayer-top,.progress,.text-toggle,.controls,.tools {
+  flex-shrink: 0
+}
+.prayer-scroll {
+  min-width: 0
+}
+@media(max-width:760px) {
+  main#top {
+    padding: 6px 12px 5px
+  }
+  .canvas-header {
+    gap: 2px;
+    margin-bottom: 5px
+  }
+  .canvas-header-row {
+    gap: 7px;
+    min-height: 34px
+  }
+  .mystery-line {
+    gap: 5px
+  }
+  .mystery-line .mystery-label {
+    display: none
+  }
+  .mystery-choice select {
+    max-width: 152px;
+    padding: 5px 20px 5px 7px;
+    font-size: .74rem
+  }
+  .utility-actions {
+    gap: 5px
+  }
+  .hand-toggle,.wake-toggle,.theme-toggle {
+    width: 34px;
+    height: 34px;
+    min-height: 34px;
+    padding: 6px
+  }
+  .hand-toggle svg,.wake-toggle svg,.theme-toggle svg {
+    width: 18px;
+    height: 18px
+  }
+  .mystery-summary h1 {
+    font-size: 1.27rem
+  }
+  .mystery-summary p {
+    font-size: .7rem;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden
+  }
+  .workspace {
+    gap: 9px
+  }
+  .prayer-panel {
+    padding: 13px 12px
+  }
+  .rail-window {
+    height: min(300px,calc(100dvh - 275px));
+    min-height: 160px
+  }
+}
+@media(max-width:390px) {
+  main#top {
+    padding: 5px 8px
+  }
+  .canvas-header {
+    margin-bottom: 4px
+  }
+  .mystery-choice select {
+    max-width: 142px;
+    font-size: .71rem
+  }
+  .utility-actions {
+    gap: 4px
+  }
+  .hand-toggle,.wake-toggle,.theme-toggle {
+    width: 32px;
+    height: 32px;
+    min-height: 32px;
+    padding: 5px
+  }
+  .mystery-summary h1 {
+    font-size: 1.18rem
+  }
+  .mystery-summary p {
+    font-size: .66rem
+  }
+  .workspace {
+    gap: 7px
+  }
+  .workspace.left-handed {
+    grid-template-columns: 68px minmax(0,1fr)
+  }
+  .prayer-panel {
+    padding: 11px 9px
+  }
+  .rail-window {
+    height: min(290px,calc(100dvh - 260px));
+    min-height: 150px
+  }
+}
+@media(max-height:620px) {
+  .mystery-summary p {
+    display: none
+  }
+  .canvas-header {
+    margin-bottom: 3px
+  }
+  .workspace {
+    gap: 6px
+  }
+  .prayer-panel {
+    padding-top: 8px;
+    padding-bottom: 8px
+  }
+}
+/* Final layout refinements for mirrored hands and full-height beads */
+/* Keep each panel in its intended column and give the bead rail the full workspace height. */
+.workspace.left-handed {
+  grid-template-columns: 190px minmax(320px,1fr)
+}
+.rosary-panel {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden
+}
+.rail-head,.reset-button {
+  flex: 0 0 auto
+}
+.rail-window {
+  flex: 1 1 0;
+  height: auto!important;
+  min-height: 0!important;
+  margin: 0
+}
+.rail-item.current:not(.cross):not(.medal) .rail-bead {
+  background: radial-gradient(circle at 32% 26%,#fffdf4,#d9c9a7 78%);
+  border: 2px solid #4b5149;
+  color: var(--ink);
+  box-shadow: inset -2px -2px 4px #705a3428,0 1px 4px #0005
+}
+.rail-item.current.large:not(.cross):not(.medal) .rail-bead {
+  background: radial-gradient(circle at 32% 26%,#fff9e9,#d2b97f 78%)
+}
+:root[data-theme="dark"] .rail-item.current:not(.cross):not(.medal) .rail-bead {
+  background: radial-gradient(circle at 32% 26%,#eadfca,#8f7954 78%);
+  border-color: #46564a;
+  color: var(--ink);
+  box-shadow: inset -2px -2px 4px #342b1e55,0 1px 5px #0008
+}
+.theme-toggle svg[hidden] {
+  display: none!important
+}
+@media(max-width:760px) {
+  .workspace.left-handed {
+    grid-template-columns: 76px minmax(0,1fr)
+  }
+}
+@media(max-width:390px) {
+  .workspace.left-handed {
+    grid-template-columns: 68px minmax(0,1fr)
+  }
+}
